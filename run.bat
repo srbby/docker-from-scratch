@@ -1,6 +1,14 @@
 echo off
-echo NodeJS web server with Dockerfile
+echo Building and running Go app in docker from scratch image
 
-docker build -t nodejs-app .
+docker run --rm -v %CD%/src:/src -w /src golang:1.8 go build -v -o app
 
-docker run --rm -p 8080:3000 -d nodejs-app
+echo Creating image
+
+docker build -t dfs-scratch -f Dockerfile.run .
+
+echo Running container
+
+docker run --rm dfs-scratch
+
+docker rmi dfs-scratch
