@@ -1,6 +1,6 @@
 echo off
-echo NodeJS web server with Dockerfile
+echo NodeJS web server with docker-compose
 
-docker build -t nodejs-app .
+docker-compose -f ./docker-compose.yml up node
 
-docker run --rm -p 8080:3000 -d nodejs-app
+docker-compose rm -f
