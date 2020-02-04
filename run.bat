@@ -1,3 +1,3 @@
 echo off
-echo Runner the docker alpine example
-docker run -it alpine:3.7 /bin/sh
+echo NodeJS image
+docker run -it --rm --name node node:12.14.1-alpine3.9
