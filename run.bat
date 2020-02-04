@@ -1,6 +1,6 @@
 echo off
-echo NodeJS web server with docker-compose
+echo Running SQL Server
 
-docker-compose -f ./docker-compose.yml up node
+docker-compose -f ./docker-compose.yml up sql
 
 docker-compose rm -f
