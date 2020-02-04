@@ -1,0 +1,2 @@
+connectionStrings:
+  defaultConnection: Server=sql,1433;Database=docker-from-scratch

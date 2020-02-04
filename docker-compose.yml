@@ -1,15 +1,29 @@
 version: "3"
 
 services:
-  sql:
-    ports:
-      - 1433:1433
+  demoapp:
+    image: demoapp
+    build:
+      context: ./DemoApp
+      dockerfile: Dockerfile
+    container_name: demoapp
     networks:
-      - sqlnet
+      - web
+      - db
+
+  sql:
+    # ports:
+    #   - 1433:1433
     image: mcr.microsoft.com/mssql/server:2019-latest
     environment:
       - ACCEPT_EULA=Y
       - SA_PASSWORD=yourStrong(!)Password
+    container_name: demoapp_sql
+    networks:
+      - db:
+          aliases:
+            - sql
 
 networks:
-  sqlnet:
+  web:
+  db:
